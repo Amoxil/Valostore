@@ -51,3 +51,21 @@ async function getItems(){
     });
     document.body.appendChild(shopContainer);
 }
+
+function selectRegion(region){
+    if(region.id === 'eu'){
+        region.src = "../resources/1.gif"
+        region.style = "border-radius: 20%; border: 2px solid #fff;"
+        var deselectedRegion = document.getElementById('na');
+        deselectedRegion.src = "../resources/2deselected.png"
+        deselectedRegion.style = "border:none"
+    }else{
+        region.src="../resources/2.gif"
+        region.style = "border-radius: 20%; border: 2px solid #fff;"
+        var deselectedRegion = document.getElementById('eu');
+        deselectedRegion.src = "../resources/1deselected.png"
+        deselectedRegion.style = "border:none"
+    }
+
+
+}
