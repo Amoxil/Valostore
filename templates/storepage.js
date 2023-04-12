@@ -1,6 +1,9 @@
 const APILINK = 'http://127.0.0.1:5000/items';
 
+regionSelected = 'eu';
+
 async function getItems(){ 
+
 
     const response = await fetch(APILINK,
         {
@@ -8,6 +11,7 @@ async function getItems(){
             body: JSON.stringify({
                 'username' : document.getElementById("username").value,
                 'password' : document.getElementById("password").value,
+                'region' : regionSelected,
             })
         }
         );
@@ -20,15 +24,14 @@ async function getItems(){
         document.body.appendChild(div)
     }else{
         formContainer = document.getElementById("formContainer");
-        formContainer.style = "display: none"
+        formContainer.classList.remove('fadeIn')
+        formContainer.classList.add('fadeOut')
     }
 
     const skins = await response.json();
     const shopContainer = document.createElement('div');
 
     shopContainer.className='shopContainer'
-    
-
   
     skins.forEach((skin) => {
         const imageWrapper = document.createElement('div');
@@ -55,16 +58,18 @@ async function getItems(){
 function selectRegion(region){
     if(region.id === 'eu'){
         region.src = "../resources/1.gif"
-        region.style = "border-radius: 20%; border: 2px solid #fff;"
+        region.style = "display: inline-block; background-color: #444444;padding: 5px;border-radius: 20%; border: 2px solid #333;"
         var deselectedRegion = document.getElementById('na');
         deselectedRegion.src = "../resources/2deselected.png"
         deselectedRegion.style = "border:none"
+        regionSelected = region.id
     }else{
         region.src="../resources/2.gif"
-        region.style = "border-radius: 20%; border: 2px solid #fff;"
+        region.style = "display: inline-block; background-color: #444444;padding: 5px;border-radius: 20%; border: 2px solid #333;"
         var deselectedRegion = document.getElementById('eu');
         deselectedRegion.src = "../resources/1deselected.png"
         deselectedRegion.style = "border:none"
+        regionSelected = region.id
     }
 
 
