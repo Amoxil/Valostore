@@ -13,25 +13,31 @@
         <img src="../resources/valostore.gif" style="max-width:50%; max-height:50%;">
     </div>
 
-    <div class="formContainer fadeIn" id="formContainer">
+    <div class="formContainer fadeIn" id="formContainer" >
         <div class="loginform" id="login">
             <div class="regionSelector">
                 <div class="regionContainer">
                     <div>
-                        <p id='euP'>Eu</p>
+                        <p> Eu </p>
                         <img onclick="selectRegion(this)" class='region' id="eu" src="../resources/1.gif" style = "display: inline-block; background-color: #444444;padding: 5px;border-radius: 20%; border: 2px solid #333;">
                     </div>
                     <div>
-                        <p id='naP'>Na</p>
+                        <p> Na </p>
                         <img onclick="selectRegion(this)" class='region' id="na" src="../resources/2deselected.png">
                     </div>
                 </div>
             </div>
-            <label> Username </label>
-            <input type="text" id="username">
-            <label> Password </label>
-            <input type="password" id="password">
-            <button onclick="getItems()" style="margin-top: 4px;">Login</button>
+            
+            
+            <form method="post" onsubmit="getItems(); return false">
+                <label> Username </label>
+                <input type="text" id="username">
+                <label> Password </label>
+                <input type="password" id="password">
+                <input type="submit" value="Login" style="margin-top: 4px;" id="submitButton">
+            </form>
+            <label id="err" style="margin-top: 10px; color:red; font-weight: bold"></label>
+            
         </div>
         
         <div class="divider"></div>
@@ -46,6 +52,7 @@
 
         </div>
     </div>
+    
 
     <img src="../resources/io.png" class="logo">
 

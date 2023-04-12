@@ -96,7 +96,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-  }
+}
 
 .regionContainer img {
     width: 50%;
@@ -117,8 +117,8 @@ body {
     padding: 30px;   
 }
 
-#login input[type="text"],
-#login input[type="password"] {
+#login form input[type="text"],
+#login form input[type="password"] {
     display: block;
     width: 100%;
     border: none;
@@ -129,11 +129,11 @@ body {
     font-size: 16px;
     color: white;
     background-color: #333;
-
+    border-radius: 5px;
 }
 
 /* Style for the submit button */
-#login button {
+#login form input[type="submit"] {
     background-color: #d14141;
     color: #fff;
     border: none;

@@ -1,33 +1,44 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, Response, abort, jsonify, render_template, request
+from riot_auth import RiotAuth, auth_exceptions
+from flask_cors import CORS
+import asyncio
+import valochecker
 import json
-import random
 
 app = Flask(__name__)
+CORS(app)
 skins = []
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
-    return render_template('index.html')
+    return render_template('storepage.html')
 
 @app.route('/items', methods=['POST', 'GET'])
 def items():
     if(request.method == 'POST'):
-        print(request.data)
-        response = jsonify(
-            skins[random.randint(0, len(skins))],
-            skins[random.randint(0, len(skins))],
-            skins[random.randint(0, len(skins))],
-            skins[random.randint(0, len(skins))]
-        )
+        
+        data = request.data.decode('utf-8') # decode the bytes object to a string
+        data_dict = json.loads(data) # load the string as JSON and convert it to a dictionary
+
+        try:
+            skins = asyncio.run(valochecker.store(data_dict['username'], data_dict['password'], data_dict['region']))
+        except auth_exceptions.RiotAuthenticationError:
+            response = jsonify("credError")
+            response.status_code=400
+            return response
+        except auth_exceptions.RiotMultifactorError:
+            response = jsonify("2faError")
+            response.status_code=400
+            return response
+        
+        print("sto continuando")
+
+        response = jsonify(skins)
         response.headers.add('Access-Control-Allow-Origin', '*')
+        
         return response
+    
   
 
 if __name__ == "__main__":
-    with open("skins.json", 'r') as jsonSkin:
-        skinsData = json.load(jsonSkin)
-    
-    skins = skinsData['data']
-    
-    print()
     app.run(debug=True)

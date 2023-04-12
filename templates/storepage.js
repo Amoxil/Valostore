@@ -2,8 +2,10 @@ const APILINK = 'http://127.0.0.1:5000/items';
 
 regionSelected = 'eu';
 
-async function getItems(){ 
-
+async function getItems(){
+    
+    const submitBtn = document.getElementById("submitButton")
+    submitBtn.disabled = true
 
     const response = await fetch(APILINK,
         {
@@ -14,45 +16,28 @@ async function getItems(){
                 'region' : regionSelected,
             })
         }
-        );
-    
+        )
+
     if(!response.ok){
-        const div = document.createElement('div');
-        const text = document.createElement('h1');
-        text.append("tutto scassato");
-        div.appendChild(text)
-        document.body.appendChild(div)
-    }else{
-        formContainer = document.getElementById("formContainer");
-        formContainer.classList.remove('fadeIn')
-        formContainer.classList.add('fadeOut')
-    }
-
-    const skins = await response.json();
-    const shopContainer = document.createElement('div');
-
-    shopContainer.className='shopContainer'
-  
-    skins.forEach((skin) => {
-        const imageWrapper = document.createElement('div');
-        imageWrapper.className = 'imageWrapper'
-        const card = document.createElement('div');
-        card.className = 'card'
-        const img = document.createElement('img')
-        if(skin['displayIcon'] === null){
-            img.src = skin['chromas'][0].displayIcon;
-        }else{
-            img.src = skin['displayIcon'];
+        err = await response.json()
+        if(err === "credError"){
+            username = document.getElementById("username")
+            password = document.getElementById("password")
+            username.style = "border:2px solid red"
+            password.style = "border:2px solid red"
+            document.getElementById("err").innerHTML = "Wrong credentials"
         }
-        const skinName = document.createElement('div');
-        skinName.className = 'skinName';
-        skinName.textContent = skin['displayName'];
-        imageWrapper.appendChild(img)
-        card.appendChild(imageWrapper)
-        card.appendChild(skinName)
-        shopContainer.appendChild(card)
-    });
-    document.body.appendChild(shopContainer);
+        else{
+            document.getElementById("err").innerHTML = "2FA not supported"
+        }
+        submitBtn.disabled = false
+    }else{
+        skins = await response.json()
+        loadShop(skins)
+    }
+    
+   
+    
 }
 
 function selectRegion(region){
@@ -73,4 +58,35 @@ function selectRegion(region){
     }
 
 
+}
+
+function loadShop(skins){
+    formContainer = document.getElementById("formContainer");
+    formContainer.classList.remove('fadeIn')
+    formContainer.classList.add('fadeOut')
+
+    const shopContainer = document.createElement('div');
+
+    shopContainer.className='shopContainer'
+  
+    skins.forEach((skin) => {
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'imageWrapper'
+        const card = document.createElement('div');
+        card.className = 'card'
+        const img = document.createElement('img')
+        if(skin['displayIcon'] === null){
+            img.src = skin['chromas'][0].displayIcon;
+        }else{
+            img.src = skin['displayIcon'];
+        }
+        const skinName = document.createElement('div');
+        skinName.className = 'skinName';
+        skinName.textContent = skin['displayName'] + " " +skin['price'];
+        imageWrapper.appendChild(img)
+        card.appendChild(imageWrapper)
+        card.appendChild(skinName)
+        shopContainer.appendChild(card)
+    });
+    document.body.appendChild(shopContainer);
 }
