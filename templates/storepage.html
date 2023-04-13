@@ -6,7 +6,7 @@
     <title>Valostore</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='storepage.css')}}">
-    <script src='main.js'></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='/resources/icon.png')}}">
 </head>
 <body>
     <div class="valostoreLogo">
@@ -43,18 +43,18 @@
         <div class="divider"></div>
         <div class="about">
             <h1> About </h1>
-            <p> Welcome to the <span style="color:#d14141">Valorant store checker</span> for lazy stupid people made by lazy stupid people! Are you tired of constantly checking the Valorant store to see if your favorite skins are available? Well, you're in luck! This site does all the work for you, so you can spend more time doing important things, like actually learn to play the game. </p>
+            <p> Welcome to the <span style="color:#d14141">Valorant store checker</span> for lazy people made by lazy people! Are you tired of constantly checking the Valorant store to see if your favorite skins are available? Well, you're in luck! This site does all the work for you, so you can spend more time doing important things, like actually learn to play the game. </p>
 
-            <p> I know that the site looks shady but ISTG it's just because I'm a shitty programmer!</p>
+            <p> I know that the site looks shady but ISTG it's just because I'm a lazy programmer!</p>
                 
-                The source code is transparently viewable on <a href="https://github.com/Amoxil">Github</a>, the credentials are directly sent to Valorant public API and no password is stored.
+                The source code is transparently viewable on <a href="https://github.com/Amoxil/Valostore/">Github</a>, the credentials are directly sent to the Valorant API and no password is stored.
                 
 
         </div>
     </div>
 
     <script>
-        const APILINK = 'https://valostore-production.up.railway.app/items';
+        const APILINK = 'https://valostore.onrender.com/items';
 
         regionSelected = 'eu';
 
