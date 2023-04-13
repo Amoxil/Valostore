@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="valostoreLogo">
-        <img src="{{ url_for('static', filename='/resources/valostore.gif')}}" style="max-width:50%; max-height:50%;">
+        <img src="{{ url_for('static', filename='/resources/valostore.gif')}}" id='valostoreLogo'>
     </div>
 
     <div class="formContainer fadeIn" id="formContainer" >
@@ -52,9 +52,6 @@
 
         </div>
     </div>
-    
-
-    <img src="{{ url_for('static', filename='/resources/io.png')}}" class="logo">
 
     <script>
         const APILINK = 'https://valostore-production.up.railway.app/items';
