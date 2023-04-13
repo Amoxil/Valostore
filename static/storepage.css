@@ -347,7 +347,8 @@ body {
     }
     
     .about{
-        display: none;
+        max-width: 80%;
+        color: white;
     }
     
     .divider {
@@ -358,7 +359,9 @@ body {
         align-items: center;
         justify-content: center;
         display: flex;
+        flex-direction: column;
         position: absolute;
+        margin-top: 30%;
         height: 70%;
         width: 100%;
         opacity: 0;
