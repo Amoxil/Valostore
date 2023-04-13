@@ -361,7 +361,7 @@ body {
         display: flex;
         flex-direction: column;
         position: absolute;
-        margin-top: 30%;
+        margin-top: 200px;
         height: 70%;
         width: 100%;
         opacity: 0;
