@@ -31,8 +31,6 @@ def items():
             response.status_code=400
             return response
         
-        print("sto continuando")
-
         response = jsonify(skins)
         response.headers.add('Access-Control-Allow-Origin', '*')
         

@@ -50,7 +50,7 @@ async def store(username, password, region):
   async with session.get('https://pd.'+region+'.a.pvp.net/store/v1/wallet/'+ user_id, headers=headers) as r:
     walletdata = await r.json()
   
-  print(walletdata)
+  print("VP: "+str(walletdata['Balances']['85ad13f7-3d1b-5128-9eb2-7cd8ee0b5741'])+" RP: "+ str(walletdata['Balances']['e59aa87c-4cbf-517a-5983-6e81511be9b7']))
   
   async with session.get('https://pd.'+ region +'.a.pvp.net/store/v2/storefront/'+ user_id, headers=headers) as r:
     data = json.loads(await r.text())

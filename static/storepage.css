@@ -1,403 +1,219 @@
-.shopContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-    animation-delay: 0.4s;
-}
+/* Main div and animations*/
 
-.fadeOut {
-    animation: fadeOut 1s ease-in forwards;
-}
-
-.fadeIn {
-    animation: fadeIn 1s ease-in forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-a{
-    color: #d14141;
-}
-
-.logo{
-    position: absolute; /* make the logo absolute */
-    bottom: 0; /* position the logo at the bottom */
-    right: 0; /* position the logo at the right */
-    width: 100px; /* set the logo's width */
-    height: auto; /* maintain the logo's aspect ratio */
-  }
-
-label{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+#valostoreLogo {
+  max-width: 50vw;
+  max-height: 20vh;
 }
 
 body {
-    text-align: center;
-    background-color: rgb(34, 34, 34);
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
-    width: 100%;
+  text-align: center;
+  background-color: rgb(34, 34, 34);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
 }
 
-.gifWrapper{
-    max-height: 20%;
-    width: auto;
-    align-items: center;
-    justify-content: center;
+.fadeOut {
+  animation: fadeOut 1s ease-in forwards;
 }
 
-.imageWrapper{
-    width: 300px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.fadeIn {
+  animation: fadeIn 1s ease-in forwards;
 }
 
-.regionSelector{
-    color: white;
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 4%;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+a {
+  color: #d14141;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+/* Login Form */
+
+.formContainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100vh;
+  margin-top: 10vh;
+  opacity: 0;
+}
+
+.gifWrapper {
+  max-height: 20%;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  width: 300px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .regionContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .regionContainer div {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .regionContainer img {
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    object-position: center;
+  width: 50%;
 }
 
-#login{
-    flex-direction: column;
-    display: flex;
-    max-width: 30%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(36, 36, 36);
-    border-radius: 5px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 30px;   
+/* Login styling */
+
+#login {
+  flex-direction: column;
+  display: flex;
+  max-width: 30vw;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(36, 36, 36);
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
 #login form input[type="text"],
 #login form input[type="password"] {
-    display: block;
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid #444444;
-    padding: 10px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: #333;
-    border-radius: 5px;
+  display: block;
+  border: none;
+  border-bottom: 2px solid #444444;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
 }
 
-/* Style for the submit button */
 #login form input[type="submit"] {
-    background-color: #d14141;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+  background-color: #d14141;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.about{
-    max-width: 30%;
-    color: white;
+.about {
+  max-width: 40%;
+  color: white;
 }
 
 .divider {
-    border-left: 2px solid #ccc;
-    height: 25%;
-    margin: 0 50px;
+  border-left: 2px solid #ccc;
+  height: 25%;
+  margin: 0 50px;
 }
 
-.formContainer{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: absolute;
-    height: 70%;
-    width: 100%;
-    opacity: 0;
+/* Shop container */
+.shopContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 0.4s;
+  width: 100vh;
 }
 
-.card{
-    width: 300px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    transition: 0.3s;
-    margin: 20px;
-    background-color: rgb(36, 36, 36);
-    border-radius: 5px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 30px;   
+.card {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.3s;
+  margin: 20px;
+  background-color: rgb(36, 36, 36);
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
 
 .card img {
-    max-height: 100%;
-    max-width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .skinName {
-    padding: 10px;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+  padding: 10px;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
-#valostoreLogo{
-    max-width: 50%;
-}
+/* Media queries */
 
 @media only screen and (max-width: 768px) {
-    .shopContainer{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        animation: fadeIn 1s ease-in forwards;
-        animation-delay: 0.4s;
-    }
-    
-    .fadeOut {
-        animation: fadeOut 1s ease-in forwards;
-    }
-    
-    .fadeIn {
-        animation: fadeIn 1s ease-in forwards;
-    }
-    
-    @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-    }
-    
-    @keyframes fadeOut {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-    
-    a{
-        color: #d14141;
-    }
-    
-    .logo{
-        position: absolute; /* make the logo absolute */
-        bottom: 0; /* position the logo at the bottom */
-        right: 0; /* position the logo at the right */
-        width: 100px; /* set the logo's width */
-        height: auto; /* maintain the logo's aspect ratio */
-      }
-    
-    label{
-        font-family: Arial, Helvetica, sans-serif;
-        color: white;
-    }
-    
-    body {
-        text-align: center;
-        background-color: rgb(34, 34, 34);
-        font-family: Arial, Helvetica, sans-serif;
-        height: 100%;
-        width: 100%;
-    }
-    
-    .gifWrapper{
-        max-height: 20%;
-        width: auto;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .imageWrapper{
-        width: 300px;
-        height: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .regionSelector{
-        color: white;
-        flex-direction: row;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 4%;
-    }
-    
-    .regionContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    
-    .regionContainer div {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    .regionContainer img {
-        width: 50%;
-        height: 50%;
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    #login{
-        flex-direction: column;
-        display: flex;
-        max-width: 80%;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(36, 36, 36);
-        border-radius: 5px;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-        margin: 5%;
-    }
-    
-    #login form input[type="text"],
-    #login form input[type="password"] {
-        display: block;
-        width: 100%;
-        border: none;
-        border-bottom: 2px solid #444444;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        font-size: 16px;
-        color: white;
-        background-color: #333;
-        border-radius: 5px;
-    }
-    
-    /* Style for the submit button */
-    #login form input[type="submit"] {
-        background-color: #d14141;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-    }
-    
-    .about{
-        max-width: 80%;
-        color: white;
-    }
-    
-    .divider {
-        display: none;
-    }
-    
-    .formContainer{
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        margin-top: 200px;
-        height: 70%;
-        width: 100%;
-        opacity: 0;
-    }
-    
-    .card{
-        width: 300px;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        transition: 0.3s;
-        margin: 20px;
-        background-color: rgb(36, 36, 36);
-        border-radius: 5px;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
-        padding: 30px;   
-    }
-    
-    .card img {
-        max-height: 100%;
-        max-width: 100%;
-    }
-    
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    
-    .skinName {
-        padding: 10px;
-        justify-content: center;
-        font-family: Arial, Helvetica, sans-serif;
-        color: white;
-    }
+  #login {
+    max-width: 80%;
+    padding: 30px 0 30px 0;
+  }
 
-    #valostoreLogo{
-        max-width: 90%;
-    }
+  .about {
+    max-width: 80%;
+    color: white;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin: 0;
+  }
+
+  #valostoreLogo {
+    max-width: 90%;
+  }
 }
